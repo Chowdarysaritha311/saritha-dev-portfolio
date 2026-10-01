@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saritha Chowdary — Generative AI Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAFAFC;
+  --bg2: #FFFFFF;
+  --bg3: #F1F2F8;
+  --surface: rgba(20,20,50,0.035);
+  --surface2: rgba(20,20,50,0.06);
+  --border: rgba(20,20,50,0.10);
+  --border2: rgba(46,111,234,0.28);
+  --blue: #2E6FEA;
+  --violet: #7C4DFF;
+  --teal: #0D9C93;
+  --text: #14162B;
+  --text2: #565B75;
+  --text3: #8A8FA6;
+  --glow-blue: rgba(46,111,234,0.10);
+  --glow-violet: rgba(124,77,255,0.10);
+  --font: 'Plus Jakarta Sans', sans-serif;
+  --heading: 'Sora', sans-serif;
+  --mono: 'IBM Plex Mono', monospace;
+}
+h1, h2, .section-title, .contact-headline, .nav-logo, .proj-title, .exp-role, .pillar-title, .think-title {
+  font-family: var(--heading);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+body::before {
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 20% 10%, rgba(46,111,234,0.09) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(124,77,255,0.09) 0%, transparent 60%);
+  pointer-events:none;
+  z-index:0;
+}
+.container { max-width:1100px; margin:0 auto; padding:0 32px; position:relative; z-index:1; }
+
+/* NAV */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  padding:18px 0;
+  background:rgba(5,8,16,0.85);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+}
+.nav-inner { display:flex; justify-content:space-between; align-items:center; }
+.nav-logo { display:flex; align-items:center; gap:10px; font-family:var(--heading); font-weight:700; font-size:15px; letter-spacing:-0.01em; }
+.nav-logo-text { background:linear-gradient(90deg, var(--blue), var(--violet)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.nav-mono { width:28px; height:28px; border-radius:8px; background:linear-gradient(135deg, var(--blue), var(--violet)); display:flex; align-items:center; justify-content:center; font-family:var(--heading); font-weight:700; font-size:12px; color:#fff; flex-shrink:0; transition:transform 0.3s ease; }
+.nav-logo:hover .nav-mono { transform:rotate(-8deg) scale(1.06); }
+.nav-links { display:flex; gap:32px; list-style:none; }
+.nav-links a { font-size:13px; color:var(--text2); text-decoration:none; letter-spacing:0.04em; transition:color 0.2s; }
+.nav-links a:hover { color:var(--blue); }
+.nav-mobile-toggle { display:none; background:none; border:none; color:var(--text); font-size:20px; cursor:pointer; }
+
+/* HERO */
+.hero { min-height:100vh; display:flex; align-items:center; padding:120px 0 80px; }
+.hero-grid { display:grid; grid-template-columns:1fr 420px; gap:80px; align-items:center; }
+.hero-label {
+  font-family:var(--mono); font-size:12px; color:var(--blue);
+  letter-spacing:0.12em; text-transform:uppercase; margin-bottom:24px;
+  display:flex; align-items:center; gap:10px;
+}
+.hero-label::before { content:''; display:inline-block; width:24px; height:1px; background:var(--blue); }
+.hero h1 { font-size:clamp(36px,5vw,60px); font-weight:700; line-height:1.1; letter-spacing:-0.02em; margin-bottom:24px; }
+.hero h1 .accent {
+  background:linear-gradient(135deg, var(--blue) 0%, var(--violet) 100%);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+}
+.hero-sub { font-size:18px; color:var(--text2); line-height:1.7; max-width:520px; margin-bottom:48px; }
+.cta-group { display:flex; gap:16px; flex-wrap:wrap; }
+.btn-primary {
+  display:inline-flex; align-items:center; gap:8px; padding:14px 28px;
+  background:linear-gradient(135deg, var(--blue), var(--violet));
+  color:#fff; border:none; border-radius:8px; font-family:var(--font);
+  font-size:14px; font-weight:600; cursor:pointer; text-decoration:none;
+  transition:opacity 0.2s, transform 0.2s; letter-spacing:0.02em;
+}
+.btn-primary:hover { opacity:0.9; transform:translateY(-1px); }
+.btn-secondary {
+  display:inline-flex; align-items:center; gap:8px; padding:14px 28px;
+  background:transparent; color:var(--text); border:1px solid var(--border2);
+  border-radius:8px; font-family:var(--font); font-size:14px; font-weight:500;
+  cursor:pointer; text-decoration:none; transition:all 0.2s; letter-spacing:0.02em;
+}
+.btn-secondary:hover { border-color:var(--blue); color:var(--blue); }
+
+/* PROFILE IMAGE */
+.hero-image-wrap { position:relative; display:flex; justify-content:center; }
+.hero-image-ring { position:relative; width:340px; height:340px; }
+.hero-image-ring::before {
+  content:''; position:absolute; inset:-2px; border-radius:50%;
+  background:linear-gradient(135deg, var(--blue), var(--violet), var(--teal));
+  z-index:0; animation:ringRotate 6s linear infinite;
+}
+@keyframes ringRotate { to { transform:rotate(360deg); } }
+.hero-image-inner {
+  position:absolute; inset:2px; border-radius:50%;
+  background:var(--bg); z-index:1; overflow:hidden;
+}
+.hero-image-inner img {
+  width:100%; height:100%; object-fit:cover; object-position:center top;
+  transition:transform 0.4s ease;
+}
+.hero-image-ring:hover .hero-image-inner img { transform:scale(1.04); }
+.hero-image-placeholder {
+  width:100%; height:100%;
+  background:linear-gradient(135deg,#0d1a2e 0%,#121d3e 50%,#0d2040 100%);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px;
+}
+.hero-image-placeholder .initials {
+  font-size:72px; font-weight:700;
+  background:linear-gradient(135deg,#4d9fff,#9b6dff);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  font-family:'Space Grotesk',sans-serif; letter-spacing:-2px;
+}
+.hero-image-placeholder .role-label {
+  font-family:'JetBrains Mono',monospace; font-size:11px;
+  color:#4d9fff; letter-spacing:0.12em;
+}
+.hero-glow {
+  position:absolute; inset:-40px; border-radius:50%;
+  background:radial-gradient(circle, rgba(77,159,255,0.18) 0%, rgba(155,109,255,0.12) 50%, transparent 70%);
+  z-index:-1; animation:glowPulse 4s ease-in-out infinite;
+}
+@keyframes glowPulse { 0%,100% { opacity:0.7; transform:scale(1); } 50% { opacity:1; transform:scale(1.05); } }
+.hero-stats { margin-top:48px; display:flex; gap:40px; }
+.hero-stat-num { font-family:var(--mono); font-size:28px; font-weight:700; color:var(--blue); line-height:1; }
+.hero-stat-label { font-size:12px; color:var(--text3); margin-top:4px; letter-spacing:0.05em; text-transform:uppercase; }
+
+/* SECTIONS */
+section { padding:100px 0; position:relative; overflow:hidden; }
+.float-orb { position:absolute; border-radius:9999px; filter:blur(60px); pointer-events:none; z-index:0; opacity:0.35; }
+@keyframes floatOrb1 { 0%,100% { transform:translate(0,0) scale(1); } 50% { transform:translate(20px,-24px) scale(1.08); } }
+@keyframes floatOrb2 { 0%,100% { transform:translate(0,0) scale(1); } 50% { transform:translate(-22px,20px) scale(1.06); } }
+@keyframes floatOrb3 { 0%,100% { transform:translate(0,0) scale(1); } 50% { transform:translate(16px,18px) scale(1.1); } }
+.container { z-index:1; }
+.hero-badge { position:absolute; display:flex; align-items:center; gap:6px; padding:8px 14px; background:var(--bg2); border:1px solid var(--border2); border-radius:999px; font-family:var(--mono); font-size:12px; font-weight:500; color:var(--text); box-shadow:0 8px 20px -8px rgba(46,111,234,0.25); z-index:3; }
+@keyframes badgeFloatA { 0%,100% { transform:translateY(0) rotate(0deg); } 50% { transform:translateY(-12px) rotate(-3deg); } }
+@keyframes badgeFloatB { 0%,100% { transform:translateY(0) rotate(0deg); } 50% { transform:translateY(10px) rotate(3deg); } }
+.pillar-icon, .think-node span:first-child { display:inline-block; animation:iconBob 4s ease-in-out infinite; }
+@keyframes iconBob { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-5px); } }
+.section-label {
+  font-family:var(--mono); font-size:11px; color:var(--blue);
+  letter-spacing:0.14em; text-transform:uppercase; margin-bottom:16px;
+  display:flex; align-items:center; gap:10px;
+}
+.section-label::after { content:''; flex:1; height:1px; background:var(--border); max-width:120px; }
+.section-title { font-size:clamp(28px,4vw,40px); font-weight:700; letter-spacing:-0.02em; margin-bottom:16px; }
+
+/* PILLARS */
+.pillars { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:60px; }
+.pillar {
+  background:var(--surface); border:1px solid var(--border); border-radius:16px;
+  padding:36px 28px; position:relative; overflow:hidden;
+  transition:border-color 0.3s, transform 0.3s;
+}
+.pillar:hover { border-color:var(--border2); transform:translateY(-4px); }
+.pillar::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; border-radius:16px 16px 0 0; }
+.pillar:nth-child(1)::before { background:linear-gradient(90deg, var(--blue), var(--violet)); }
+.pillar:nth-child(2)::before { background:linear-gradient(90deg, var(--violet), var(--teal)); }
+.pillar:nth-child(3)::before { background:linear-gradient(90deg, var(--teal), var(--blue)); }
+.pillar-icon { font-size:32px; margin-bottom:20px; display:block; }
+.pillar-title { font-size:20px; font-weight:600; margin-bottom:12px; }
+.pillar-desc { color:var(--text2); font-size:14px; line-height:1.7; }
+.pillar-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; }
+.tag { font-family:var(--mono); font-size:11px; padding:4px 10px; border:1px solid var(--border); border-radius:20px; color:var(--text3); background:var(--surface); }
+
+/* PROJECTS */
+.projects-grid { display:grid; gap:32px; margin-top:60px; }
+.project-card {
+  background:var(--surface); border:1px solid var(--border); border-radius:16px;
+  padding:40px; display:grid; grid-template-columns:1fr 1fr; gap:40px;
+  align-items:start; transition:border-color 0.3s; position:relative; overflow:hidden;
+}
+.project-card::after {
+  content:''; position:absolute; top:0; right:0; width:200px; height:200px;
+  border-radius:50%; background:var(--glow-blue); filter:blur(60px);
+  pointer-events:none; opacity:0; transition:opacity 0.4s;
+}
+.project-card:hover { border-color:var(--border2); }
+.project-card:hover::after { opacity:1; }
+.proj-number { font-family:var(--mono); font-size:11px; color:var(--text3); letter-spacing:0.08em; margin-bottom:12px; }
+.proj-title { font-size:22px; font-weight:700; margin-bottom:8px; }
+.proj-headline { font-size:14px; color:var(--blue); font-family:var(--mono); margin-bottom:20px; }
+.proj-case { display:flex; flex-direction:column; gap:16px; }
+.proj-case-item label { display:block; font-size:10px; color:var(--text3); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px; font-family:var(--mono); }
+.proj-case-item p { font-size:14px; color:var(--text2); line-height:1.7; }
+.proj-meta { display:flex; flex-direction:column; gap:20px; }
+.proj-tags-row { display:flex; flex-wrap:wrap; gap:8px; }
+.tag-accent { font-family:var(--mono); font-size:11px; padding:5px 12px; border-radius:20px; background:rgba(77,159,255,0.1); border:1px solid rgba(77,159,255,0.2); color:var(--blue); }
+.proj-links { display:flex; gap:12px; }
+.proj-link { display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--text2); text-decoration:none; padding:8px 16px; border:1px solid var(--border); border-radius:8px; transition:all 0.2s; font-family:var(--mono); }
+.proj-link:hover { border-color:var(--blue); color:var(--blue); }
+.proj-arch { font-size:13px; color:var(--text3); font-family:var(--mono); }
+.proj-arch span { color:var(--teal); }
+
+/* THINKING */
+.thinking-flow { margin-top:60px; display:grid; grid-template-columns:repeat(5,1fr); gap:0; position:relative; }
+.thinking-flow::before {
+  content:''; position:absolute; top:36px; left:10%; right:10%; height:1px;
+  background:linear-gradient(90deg, transparent, var(--border2), var(--border2), transparent); z-index:0;
+}
+.think-step { display:flex; flex-direction:column; align-items:center; text-align:center; padding:0 12px; position:relative; z-index:1; }
+.think-node { width:72px; height:72px; border-radius:50%; background:var(--surface); border:1px solid var(--border2); display:flex; align-items:center; justify-content:center; font-size:24px; margin-bottom:16px; position:relative; }
+.think-node-num { position:absolute; top:-8px; right:-8px; width:22px; height:22px; border-radius:50%; background:var(--blue); color:#000; font-size:10px; font-weight:700; display:flex; align-items:center; justify-content:center; font-family:var(--mono); }
+.think-title { font-size:13px; font-weight:600; margin-bottom:6px; }
+.think-desc { font-size:12px; color:var(--text3); line-height:1.5; }
+
+/* TERMINAL */
+.terminal-wrap { margin-top:60px; background:var(--bg2); border:1px solid var(--border); border-radius:16px; overflow:hidden; }
+.terminal-bar { background:var(--bg3); padding:12px 20px; display:flex; align-items:center; gap:8px; border-bottom:1px solid var(--border); }
+.t-dot { width:12px; height:12px; border-radius:50%; }
+.t-dot-r { background:#ff5f57; } .t-dot-y { background:#ffbd2e; } .t-dot-g { background:#28c840; }
+.t-title { font-family:var(--mono); font-size:12px; color:var(--text3); margin-left:8px; }
+.terminal-body { padding:24px; min-height:220px; max-height:400px; overflow-y:auto; }
+.t-output { font-family:var(--mono); font-size:13px; line-height:1.8; }
+.t-line-out { color:var(--text2); }
+.t-prompt { display:flex; align-items:center; gap:8px; margin-top:16px; }
+.t-ps { color:var(--blue); font-family:var(--mono); font-size:13px; }
+.t-input { flex:1; background:transparent; border:none; outline:none; font-family:var(--mono); font-size:13px; color:var(--text); caret-color:var(--blue); }
+.t-commands-hint { margin-top:12px; display:flex; gap:8px; flex-wrap:wrap; padding:0 24px 16px; }
+.t-cmd-pill { font-family:var(--mono); font-size:11px; padding:4px 10px; background:var(--surface); border:1px solid var(--border); border-radius:4px; color:var(--text3); cursor:pointer; transition:all 0.2s; }
+.t-cmd-pill:hover { border-color:var(--blue); color:var(--blue); }
+
+/* EXPERIENCE */
+.exp-list { margin-top:60px; display:flex; flex-direction:column; gap:24px; }
+.exp-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:28px 32px; display:grid; grid-template-columns:44px auto 1fr; gap:20px; align-items:start; transition:border-color 0.3s; }
+.exp-logo { width:44px; height:44px; border-radius:50%; object-fit:contain; background:var(--bg2); border:1px solid var(--border); padding:6px; flex-shrink:0; }
+.exp-card:hover { border-color:var(--border2); }
+.exp-year { font-family:var(--mono); font-size:11px; color:var(--text3); letter-spacing:0.08em; width:80px; padding-top:4px; }
+.exp-role { font-size:17px; font-weight:600; margin-bottom:4px; }
+.exp-company { font-size:13px; color:var(--blue); font-family:var(--mono); margin-bottom:12px; }
+.exp-impact { font-size:14px; color:var(--text2); line-height:1.7; }
+
+/* CONTACT */
+.contact-section { text-align:center; padding:100px 0; }
+.contact-headline { font-size:clamp(28px,4vw,48px); font-weight:700; letter-spacing:-0.02em; margin-bottom:16px; line-height:1.2; }
+.contact-headline .accent { background:linear-gradient(135deg,var(--blue),var(--violet)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.contact-sub { font-size:18px; color:var(--text2); margin-bottom:48px; }
+.contact-links { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+.contact-link { display:inline-flex; align-items:center; gap:8px; padding:14px 24px; border:1px solid var(--border); border-radius:10px; color:var(--text2); text-decoration:none; font-size:14px; font-family:var(--mono); transition:all 0.2s; }
+.contact-link:hover { border-color:var(--blue); color:var(--blue); }
+.contact-note { margin-top:48px; font-family:var(--mono); font-size:12px; color:var(--text3); }
+
+/* FOOTER */
+footer { padding:40px 0; border-top:1px solid var(--border); text-align:center; }
+.footer-text { font-family:var(--mono); font-size:12px; color:var(--text3); }
+
+/* DIVIDER */
+.divider { border:none; border-top:1px solid var(--border); margin:0; }
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width:4px; }
+::-webkit-scrollbar-track { background:var(--bg); }
+::-webkit-scrollbar-thumb { background:var(--border2); border-radius:2px; }
+
+/* RESPONSIVE */
+@media(max-width:900px) {
+  .nav-links { display:none; }
+  .nav-mobile-toggle { display:block; }
+  .nav-links.open { display:flex; flex-direction:column; position:fixed; top:60px; left:0; right:0; background:var(--bg2); border-bottom:1px solid var(--border); padding:20px 32px; gap:20px; }
+  .hero-grid { grid-template-columns:1fr; gap:48px; }
+  .hero-image-wrap { order:-1; justify-content:center; }
+  .hero-image-ring { width:240px; height:240px; }
+  .hero-image-placeholder .initials { font-size:52px; }
+  .pillars { grid-template-columns:1fr; }
+  .project-card { grid-template-columns:1fr; }
+  .thinking-flow { grid-template-columns:1fr 1fr; gap:24px; }
+  .thinking-flow::before { display:none; }
+  .exp-card { grid-template-columns:1fr; }
+  .exp-year { width:auto; }
+  .hero-stats { flex-wrap:wrap; gap:24px; }
+  .container { padding:0 20px; }
+  section { padding:64px 0; }
+}
+@media(max-width:560px) {
+  .thinking-flow { grid-template-columns:1fr; }
+  .project-card { padding:24px; }
+  .pillar { padding:24px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════ NAV ═══════════════════════════════ -->
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <div class="nav-logo"><span class="nav-mono">SC</span><span class="nav-logo-text">saritha.chowdary</span></div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#build">What I Build</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#thinking">How I Think</a></li>
+        <li><a href="#terminal">Terminal</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume ↓</a></li>
+      </ul>
+      <button class="nav-mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+<section class="hero">
+  <div class="float-orb" style="width:260px;height:260px;top:8%;left:2%;background:var(--blue);animation:floatOrb1 11s ease-in-out infinite;"></div>
+  <div class="float-orb" style="width:220px;height:220px;bottom:6%;right:4%;background:var(--violet);animation:floatOrb2 13s ease-in-out infinite;animation-delay:1.5s;"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="hero-label">Generative AI Engineer · Full Stack Developer</div>
+        <h1>
+          I build AI systems that<br>
+          <span class="accent">think, decide,</span><br>
+          and act.
+        </h1>
+        <p class="hero-sub">
+          From multi-agent pipelines to full-stack platforms — I design systems that solve real-world problems, not demo problems.
+        </p>
+        <div class="cta-group">
+          <a href="#projects" class="btn-primary">View Work ↓</a>
+          <a href="#contact" class="btn-secondary">Get in Touch →</a>
+          <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary">Resume ↓</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-num">50+</div>
+            <div class="hero-stat-label">Projects Built</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">5+</div>
+            <div class="hero-stat-label">AI Agents Deployed</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">8+</div>
+            <div class="hero-stat-label">Internships</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROFILE IMAGE — Replace src with your actual photo path -->
+      <div class="hero-image-wrap">
+        <div class="hero-badge" style="top:0%;left:-8%;animation:badgeFloatA 5.5s ease-in-out infinite;">🐍 Python</div>
+        <div class="hero-badge" style="top:14%;right:calc(-10% - 38px);animation:badgeFloatB 6.5s ease-in-out infinite;animation-delay:0.4s;">🔗 LangChain</div>
+        <div class="hero-badge" style="bottom:16%;left:-10%;animation:badgeFloatA 6s ease-in-out infinite;animation-delay:1.1s;">⚛️ React</div>
+        <div class="hero-badge" style="bottom:2%;right:-6%;animation:badgeFloatB 5s ease-in-out infinite;animation-delay:0.7s;">⚡ FastAPI</div>
+        <div class="hero-image-ring">
+          <div class="hero-glow"></div>
+          <div class="hero-image-inner">
+            <img src="images/passportsizephoto.jpeg" alt="Saritha Chowdary">
+              <div class="initials">SC</div>
+              <div class="role-label">AI ENGINEER</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════ WHAT I BUILD ═══════════════════════════════ -->
+<section id="build">
+  <div class="float-orb" style="width:200px;height:200px;top:-40px;right:6%;background:var(--teal);animation:floatOrb3 12s ease-in-out infinite;"></div>
+  <div class="container">
+    <div class="section-label">Capabilities</div>
+    <h2 class="section-title">What I Build</h2>
+    <p style="color:var(--text2);max-width:560px;">Not a list of tools I've heard of — these are the systems I've actually shipped and deployed.</p>
+
+    <div class="pillars">
+      <div class="pillar">
+        <span class="pillar-icon">🧠</span>
+        <div class="pillar-title">Agentic AI Systems</div>
+        <p class="pillar-desc">I build agents that orchestrate tools, call APIs, reason over state, and loop until the job is done. Not chatbots — pipelines that think.</p>
+        <div class="pillar-tags">
+          <span class="tag">LangGraph</span>
+          <span class="tag">LangChain</span>
+          <span class="tag">RAG</span>
+          <span class="tag">MCP Protocol</span>
+          <span class="tag">Multi-Agent</span>
+          <span class="tag">Ollama</span>
+        </div>
+      </div>
+      <div class="pillar">
+        <span class="pillar-icon">⚡</span>
+        <div class="pillar-title">Full-Stack Platforms</div>
+        <p class="pillar-desc">End-to-end systems with real users. React frontends, FastAPI & Node backends, PostgreSQL and MongoDB databases — production-grade, not just working demos.</p>
+        <div class="pillar-tags">
+          <span class="tag">React</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">Spring Boot</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">MongoDB</span>
+          <span class="tag">PostgreSQL</span>
+        </div>
+      </div>
+      <div class="pillar">
+        <span class="pillar-icon">🔄</span>
+        <div class="pillar-title">Automation Workflows</div>
+        <p class="pillar-desc">I wire together n8n, APIs, and AI models to eliminate manual, repetitive work — invoice processing, data pipelines, business logic — fully automated.</p>
+        <div class="pillar-tags">
+          <span class="tag">n8n</span>
+          <span class="tag">Zapier</span>
+          <span class="tag">Make.com</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">Automation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════ PROJECTS ═══════════════════════════════ -->
+<section id="projects">
+  <div class="float-orb" style="width:240px;height:240px;top:10%;left:-60px;background:var(--blue);animation:floatOrb1 14s ease-in-out infinite;"></div>
+  <div class="container">
+    <div class="section-label">Work</div>
+    <h2 class="section-title">Featured Projects</h2>
+    <p style="color:var(--text2);max-width:560px;">Case-study breakdowns — what was the problem, how was it approached, and what was the outcome.</p>
+
+    <div class="projects-grid">
+
+      <!-- Project 1 -->
+      <div class="project-card">
+        <div class="proj-left">
+          <div class="proj-number">01 / Invoice AI</div>
+          <div class="proj-title">Automated Invoice Parser</div>
+          <div class="proj-headline">Multi-agent extraction pipeline</div>
+          <div class="proj-case">
+            <div class="proj-case-item">
+              <label>The Problem</label>
+              <p>Hours of manual data entry per invoice. Humans making errors copying values into databases with no audit trail.</p>
+            </div>
+            <div class="proj-case-item">
+              <label>The Approach</label>
+              <p>Built a LangGraph multi-agent pipeline: one agent extracts, one validates, one flags uncertainty and pauses for human review before committing to the database.</p>
+            </div>
+            <div class="proj-case-item">
+              <label>The Outcome</label>
+              <p>Fully automated flow with an auditable trail. What took hours now runs unattended — with a human-in-the-loop safety net for edge cases.</p>
+            </div>
+          </div>
+        </div>
+        <div class="proj-meta">
+          <div class="proj-tags-row">
+            <span class="tag-accent">Multi-Agent</span>
+            <span class="tag-accent">LangGraph</span>
+            <span class="tag-accent">n8n</span>
+            <span class="tag-accent">MongoDB</span>
+            <span class="tag-accent">FastAPI</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://github.com/Chowdarysaritha311/Invoice-parser" target="_blank" class="proj-link">↗ GitHub</a>
+          </div>
+          <div class="proj-arch">
+            <span>Architecture:</span><br>
+            Orchestrator → Extractor Agent → Validator Agent → Human Gate → DB Write
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card">
+        <div class="proj-left">
+          <div class="proj-number">02 / Research Agent</div>
+          <div class="proj-title">LLM Web Research Agent</div>
+          <div class="proj-headline">RAG-powered live research system</div>
+          <div class="proj-case">
+            <div class="proj-case-item">
+              <label>The Problem</label>
+              <p>Research that takes an hour of searching, reading, and synthesizing — nobody should do this manually when an agent can do it in seconds.</p>
+            </div>
+            <div class="proj-case-item">
+              <label>The Approach</label>
+              <p>Deployed a LangChain + RAG pipeline: queries the live web, validates source credibility, chunks and embeds results, then synthesizes a grounded summary.</p>
+            </div>
+            <div class="proj-case-item">
+              <label>The Outcome</label>
+              <p>Live demo deployed on Render. Query → validated summary in seconds, with source traceability built in.</p>
+            </div>
+          </div>
+        </div>
+        <div class="proj-meta">
+          <div class="proj-tags-row">
+            <span class="tag-accent">RAG</span>
+            <span class="tag-accent">LangChain</span>
+            <span class="tag-accent">Web Search</span>
+            <span class="tag-accent">Production</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://github.com/Chowdarysaritha311/web-research-agent.git" target="_blank" class="proj-link">↗ GitHub</a>
+            <a href="https://web-research-agent-h2el.onrender.com/" target="_blank" class="proj-link">↗ Live Demo</a>
+          </div>
+          <div class="proj-arch">
+            <span>Architecture:</span><br>
+            Query → Web Fetch → Embed → Vector Search → LLM Synthesis
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card">
+        <div class="proj-left">
+          <div class="proj-number">03 / Conversational AI</div>
+          <div class="proj-title">Real-Time Flight Booking Agent</div>
+          <div class="proj-headline">Natural language → real API calls</div>
+          <div class="proj-case">
+            <div class="proj-case-item">
+              <label>The Problem</label>
+              <p>Flight search UIs are complex and time-consuming. People know what they want in plain English — they just can't express it to a form.</p>
+            </div>
+            <div class="proj-case-item">
+              <label>The Approach</label>
+              <p>Built an LLM agent with LangGraph that parses natural intent ("cheapest flight to Mumbai next Friday"), resolves ambiguity through conversation, and calls live flight APIs with the right parameters.</p>
+            </div>
+            <div class="proj-case-item">
+              <label>The Outcome</label>
+              <p>Conversational flight search with real options. The agent handles follow-up clarifications and maintains booking context across turns.</p>
+            </div>
+          </div>
+        </div>
+        <div class="proj-meta">
+          <div class="proj-tags-row">
+            <span class="tag-accent">Agentic AI</span>
+            <span class="tag-accent">Real-time APIs</span>
+            <span class="tag-accent">LangGraph</span>
+            <span class="tag-accent">NLU</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://github.com/Chowdarysaritha311/real-time-ai-flight-booking-agent.git" target="_blank" class="proj-link">↗ GitHub</a>
+          </div>
+          <div class="proj-arch">
+            <span>Architecture:</span><br>
+            NL Input → Intent Parse → Tool Router → Flight API → Response Synthesis
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card">
+        <div class="proj-left">
+          <div class="proj-number">04 / Full-Stack Platform</div>
+          <div class="proj-title">FixItNow Marketplace</div>
+          <div class="proj-headline">Hyperlocal service platform, end-to-end</div>
+          <div class="proj-case">
+            <div class="proj-case-item">
+              <label>The Problem</label>
+              <p>Finding a trusted electrician or plumber locally is fragmented and unreliable. No centralized, verified platform existed for hyperlocal service booking.</p>
+            </div>
+            <div class="proj-case-item">
+              <label>The Approach</label>
+              <p>Built the full stack: Spring Boot backend with JWT auth, React frontend, MySQL for data, Google Maps for location discovery, real-time WebSocket chat, and admin dashboards for dispute resolution.</p>
+            </div>
+            <div class="proj-case-item">
+              <label>The Outcome</label>
+              <p>Live on Vercel. Providers self-onboard with skills and location. Customers see nearby options on a live map and book with real time slots.</p>
+            </div>
+          </div>
+        </div>
+        <div class="proj-meta">
+          <div class="proj-tags-row">
+            <span class="tag-accent">Full Stack</span>
+            <span class="tag-accent">Spring Boot</span>
+            <span class="tag-accent">React</span>
+            <span class="tag-accent">Google Maps</span>
+            <span class="tag-accent">WebSocket</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://github.com/r24af32/FixItNow.git" target="_blank" class="proj-link">↗ GitHub</a>
+            <a href="https://fix-it-now-chi.vercel.app/" target="_blank" class="proj-link">↗ Live Demo</a>
+          </div>
+          <div class="proj-arch">
+            <span>Architecture:</span><br>
+            React → Spring Boot REST → MySQL + Maps + WebSocket Chat
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════ HOW I THINK ═══════════════════════════════ -->
+<section id="thinking">
+  <div class="container">
+    <div class="section-label">Mindset</div>
+    <h2 class="section-title">How I Think</h2>
+    <p style="color:var(--text2);max-width:560px;">The engineering process behind every system I build — from vague problem to deployed solution.</p>
+
+    <div class="thinking-flow">
+      <div class="think-step">
+        <div class="think-node">
+          <span>🔍</span>
+          <div class="think-node-num">1</div>
+        </div>
+        <div class="think-title">Understand Deeply</div>
+        <p class="think-desc">What's the actual pain? Not the stated problem — the root one.</p>
+      </div>
+      <div class="think-step">
+        <div class="think-node">
+          <span>🧩</span>
+          <div class="think-node-num">2</div>
+        </div>
+        <div class="think-title">Decompose</div>
+        <p class="think-desc">Break into agents, tools, services. Map each component's responsibility.</p>
+      </div>
+      <div class="think-step">
+        <div class="think-node">
+          <span>🤖</span>
+          <div class="think-node-num">3</div>
+        </div>
+        <div class="think-title">Design Agents</div>
+        <p class="think-desc">Which decisions need AI? Which are deterministic? Assign correctly.</p>
+      </div>
+      <div class="think-step">
+        <div class="think-node">
+          <span>⚡</span>
+          <div class="think-node-num">4</div>
+        </div>
+        <div class="think-title">Wire & Build</div>
+        <p class="think-desc">Connect APIs, craft prompts, handle errors, validate at every edge.</p>
+      </div>
+      <div class="think-step">
+        <div class="think-node">
+          <span>✅</span>
+          <div class="think-node-num">5</div>
+        </div>
+        <div class="think-title">Ship & Validate</div>
+        <p class="think-desc">Deploy. Observe. Iterate. Don't call it done until it actually works.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════ TERMINAL ═══════════════════════════════ -->
+<section id="terminal">
+  <div class="float-orb" style="width:200px;height:200px;bottom:0;right:4%;background:var(--violet);animation:floatOrb2 10s ease-in-out infinite;"></div>
+  <div class="container">
+    <div class="section-label">Interactive</div>
+    <h2 class="section-title">Ask Me Anything</h2>
+    <p style="color:var(--text2);max-width:560px;">Type a command below — or click a suggestion — to explore Saritha's profile.</p>
+
+    <div class="terminal-wrap">
+      <div class="terminal-bar">
+        <div class="t-dot t-dot-r"></div>
+        <div class="t-dot t-dot-y"></div>
+        <div class="t-dot t-dot-g"></div>
+        <div class="t-title">saritha@portfolio:~$</div>
+      </div>
+      <div class="terminal-body">
+        <div class="t-output" id="t-output">
+          <div class="t-line-out">Welcome to Saritha's interactive terminal. 👋</div>
+          <div class="t-line-out">Type a command or click a suggestion below.</div>
+          <div class="t-line-out" style="color:var(--text3);">────────────────────────────────────────────</div>
+        </div>
+        <div class="t-prompt">
+          <span class="t-ps">❯</span>
+          <input class="t-input" id="t-input" type="text" autocomplete="off" spellcheck="false" placeholder="type a command and press Enter...">
+        </div>
+      </div>
+      <div class="t-commands-hint">
+        <span class="t-cmd-pill" onclick="runCommand('about')">about</span>
+        <span class="t-cmd-pill" onclick="runCommand('skills')">skills</span>
+        <span class="t-cmd-pill" onclick="runCommand('projects')">projects</span>
+        <span class="t-cmd-pill" onclick="runCommand('experience')">experience</span>
+        <span class="t-cmd-pill" onclick="runCommand('awards')">awards</span>
+        <span class="t-cmd-pill" onclick="runCommand('certifications')">certifications</span>
+        <span class="t-cmd-pill" onclick="runCommand('resume')">resume</span>
+        <span class="t-cmd-pill" onclick="runCommand('contact')">contact</span>
+        <span class="t-cmd-pill" onclick="runCommand('help')">help</span>
+        <span class="t-cmd-pill" onclick="runCommand('clear')">clear</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════ EXPERIENCE ═══════════════════════════════ -->
+<section id="experience">
+  <div class="float-orb" style="width:220px;height:220px;top:20%;right:-60px;background:var(--teal);animation:floatOrb3 11.5s ease-in-out infinite;"></div>
+  <div class="container">
+    <div class="section-label">Experience</div>
+    <h2 class="section-title">What I've Built, Where</h2>
+    <p style="color:var(--text2);max-width:560px;">Impact-first. Every role judged by what was shipped, not what was listed in the job description.</p>
+
+    <div class="exp-list">
+      <div class="exp-card">
+        <img class="exp-logo" src="images/hello-recruiter.png" alt="Hello Recruiter logo">
+        <div class="exp-year">Oct 2026<br>Present</div>
+        <div>
+          <div class="exp-role">AI Software Engineer</div>
+          <div class="exp-company">Hello Recruiter®</div>
+          <div class="exp-impact">Evaluating LLM-driven interview agents for accuracy, context retention, and reliability. Designing test scenarios and benchmark datasets for a production hiring platform, and contributing to prompt engineering and QA processes.</div>
+        </div>
+      </div>
+      <div class="exp-card">
+        <img class="exp-logo" src="images/hello-recruiter.png" alt="Hello Recruiter logo">
+        <div class="exp-year">May 2026<br>Sep 2026</div>
+        <div>
+          <div class="exp-role">AI Software Intern</div>
+          <div class="exp-company">Hello Recruiter®</div>
+          <div class="exp-impact">Ran end-to-end test scenarios across job roles and candidate workflows, documented failure modes and hallucination patterns in AI outputs, and assessed AI monitoring systems including candidate verification and interview integrity checks.</div>
+        </div>
+      </div>
+      <div class="exp-card">
+        <img class="exp-logo" src="images/makerinme.png" alt="MakerInMe Technologies logo">
+        <div class="exp-year">Dec 2025<br>May 2026</div>
+        <div>
+          <div class="exp-role">AI Development Intern</div>
+          <div class="exp-company">MakerInMe Technologies</div>
+          <div class="exp-impact">Built multi-agent LangGraph pipelines deployed as FastAPI services in production. Automated invoice processing with n8n — reducing hours of manual work to zero. Designed MongoDB + Pydantic data layers for clean, consistent persistence across the entire pipeline.</div>
+        </div>
+      </div>
+      <div class="exp-card">
+        <img class="exp-logo" src="images/uptoskills.png" alt="UptoSkills logo">
+        <div class="exp-year">Mar 2025<br>May 2025</div>
+        <div>
+          <div class="exp-role">AI/ML Intern · Team Lead</div>
+          <div class="exp-company">Uptoskills</div>
+          <div class="exp-impact">Led a team of four to ship a real-time crowd surveillance system using Python and OpenCV. Processed live video frames to flag behavioral anomalies and trigger automated alerts. Received the Best Intern Award for technical leadership and delivery quality within the deadline.</div>
+        </div>
+      </div>
+      <div class="exp-card">
+        <img class="exp-logo" src="images/edunet.png" alt="Edunet Foundation logo">
+        <div class="exp-year">Feb 2025<br>Mar 2025</div>
+        <div>
+          <div class="exp-role">MERN Stack Intern</div>
+          <div class="exp-company">Edunet Foundation</div>
+          <div class="exp-impact">Built a complete food delivery platform from scratch — React frontend, Node/Express backend, MongoDB database, JWT authentication, payment gateway integration, cart management, and real-time order tracking. Every layer, owned end to end.</div>
+        </div>
+      </div>
+      <div class="exp-card">
+        <img class="exp-logo" src="images/infosys.png" alt="Infosys logo">
+        <div class="exp-year">Jul 2025<br>Sep 2025</div>
+        <div>
+          <div class="exp-role">Graduate Trainee · Cohort 6</div>
+          <div class="exp-company">Infosys Springboard Pragati</div>
+          <div class="exp-impact">Intensive 3-month program covering AWS, Azure, generative AI, GPT models, prompt engineering, NLP, deep learning, and computer vision. One of the most rigorous structured training programs I've completed — built the theoretical foundation to match the practical skills.</div>
+        </div>
+      </div>
+      <div class="exp-card">
+        <img class="exp-logo" src="images/excelr.png" alt="ExcelR logo">
+        <div class="exp-year">Jun 2024<br>Jul 2024</div>
+        <div>
+          <div class="exp-role">AI & ML Intern</div>
+          <div class="exp-company">ExcelR</div>
+          <div class="exp-impact">Worked on real ML pipelines using real-world data — data exploration, cleaning, feature engineering, model building, and evaluation using NumPy, Pandas, and Scikit-learn. Learned that real data is never clean, and that's where the real engineering happens.</div>
+        </div>
+      </div>
+      <div class="exp-card">
+        <img class="exp-logo" src="images/avishkar.png" alt="Avishkar Tech Solutions logo">
+        <div class="exp-year">May 2024<br>Jul 2024</div>
+        <div>
+          <div class="exp-role">Python Full Stack Intern</div>
+          <div class="exp-company">Avishkar Tech Solutions</div>
+          <div class="exp-impact">Built Python backend services and REST APIs for client projects. Worked across the full stack with HTML, CSS, and JavaScript on the frontend. Developed strong habits around clean code, performance optimization, and Git-based version control in a professional environment.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════ CONTACT ═══════════════════════════════ -->
+<section id="contact">
+  <div class="float-orb" style="width:260px;height:260px;top:-40px;left:8%;background:var(--blue);animation:floatOrb1 13s ease-in-out infinite;"></div>
+  <div class="float-orb" style="width:200px;height:200px;bottom:0;right:8%;background:var(--violet);animation:floatOrb2 10.5s ease-in-out infinite;animation-delay:1s;"></div>
+  <div class="container">
+    <div class="contact-section">
+      <h2 class="contact-headline">
+        If you're building something<br>
+        <span class="accent">meaningful in AI,</span><br>
+        let's connect.
+      </h2>
+      <p class="contact-sub">Open to full-time roles, freelance AI projects, and interesting problems.</p>
+      <div class="contact-links">
+        <a href="mailto:chowdarysaritha311@gmail.com" class="contact-link">✉ Email</a>
+        <a href="https://linkedin.com/in/sarithachowdary" target="_blank" class="contact-link">in LinkedIn</a>
+        <a href="https://github.com/Chowdarysaritha311" target="_blank" class="contact-link">⌥ GitHub</a>
+        <a href="https://leetcode.com/u/ch_saritha095" target="_blank" class="contact-link">⌘ LeetCode</a>
+        <a href="https://codechef.com/users/chsaritha" target="_blank" class="contact-link">◈ CodeChef</a>
+        <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="contact-link">↓ Resume</a>
+      </div>
+      <div class="contact-note">Andhra Pradesh, India · Available for remote &amp; on-site roles</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-text">© 2026 Saritha Chowdary · Built with purpose, not with templates.</div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════ TERMINAL SCRIPT ═══════════════════════════════ -->
+<script>
+const commands = {
+  help: () => `
+<span style="color:var(--blue)">Available commands:</span>
+  about          — Who I am
+  skills         — Full technical stack
+  projects       — All key projects
+  experience     — Work history
+  awards         — Achievements & awards
+  certifications — Certifications earned
+  resume         — Open my resume (PDF)
+  contact        — How to reach me
+  clear          — Clear the terminal`,
+
+  about: () => `
+<span style="color:var(--teal)">Saritha Chowdary</span>
+Role:      AI Software Engineer @ Hello Recruiter&reg;
+Location:  Andhra Pradesh, India
+Education: B.Tech Information Technology (CGPA: 8.21)
+           Vignan's Institute of Engineering for Women
+           Graduated: April 2026
+
+I build AI systems that solve real problems — not toy demos.
+50+ projects shipped. Multi-agent workflows. Production RAG pipelines.
+Full-stack platforms with actual users.`,
+
+  skills: () => `
+<span style="color:var(--blue)">── Agentic AI & LLMs</span>
+  LangChain · LangGraph · LangSmith · LangFlow
+  RAG Pipelines · MCP Protocol · Prompt Engineering
+  n8n · Ollama · CrewAI · HuggingFace · OpenAI
+
+<span style="color:var(--violet)">── Backend & APIs</span>
+  Python · FastAPI · Flask · Node.js · Express.js
+  Spring Boot · Django · REST APIs · JWT Auth
+
+<span style="color:var(--teal)">── Frontend</span>
+  React.js · TypeScript · JavaScript · Tailwind CSS
+  HTML5 · CSS3 · Bootstrap · Responsive Design
+
+<span style="color:var(--blue)">── Databases</span>
+  MongoDB · MySQL · PostgreSQL · Schema Design
+
+<span style="color:var(--violet)">── AI/ML & Computer Vision</span>
+  OpenCV · YOLO · Scikit-learn · NumPy · Pandas
+  NLP · Object Detection · Anomaly Detection
+
+<span style="color:var(--teal)">── Cloud & DevOps</span>
+  AWS (EC2) · Microsoft Azure · Docker · Git · CI/CD`,
+
+  projects: () => `
+<span style="color:var(--teal)">All Key Projects:</span>
+
+[01] AI Invoice Parser        — Multi-Agent · LangGraph · n8n
+     github.com/Chowdarysaritha311/Invoice-parser
+
+[02] Web Research Agent       — RAG · LangChain · Live Demo
+     web-research-agent-h2el.onrender.com
+
+[03] Flight Booking AI Agent  — Agentic · Real-time APIs · LangGraph
+     github.com/Chowdarysaritha311/real-time-ai-flight-booking-agent
+
+[04] MCP Flight Search Agent  — MCP Protocol · FastAPI
+     github.com/Chowdarysaritha311/real-time-flight-booking-mcp
+
+[05] Jet Jester AI Agent      — Conversational · Agent Workflows
+     jet-jester-agent.lovable.app
+
+[06] FixItNow Marketplace     — Full Stack · Spring Boot + React
+     fix-it-now-chi.vercel.app
+
+[07] Zomato Clone             — MERN Stack · Full Stack
+     foodkings.vercel.app
+
+[08] Crowd Surveillance       — CV · OpenCV · Team Lead
+[09] Unattended Luggage Det.  — YOLO · Object Tracking · Security
+[10] Credit Card Fraud API    — ML · Scikit-learn · REST API
+[11] Flutter Chat App         — Mobile · Cross-platform · Real-time`,
+
+  experience: () => `
+<span style="color:var(--blue)">Work History</span>
+
+Oct 2026 – Present  <span style="color:var(--teal)">Hello Recruiter&reg;</span>
+  → AI Software Engineer
+  → Evaluating LLM interview agents for accuracy & reliability
+  → Prompt engineering and QA for a production hiring platform
+
+May – Sep 2026  <span style="color:var(--teal)">Hello Recruiter&reg;</span>
+  → AI Software Intern
+  → End-to-end test scenarios across roles and workflows
+  → Documented failure modes and hallucination patterns
+
+Dec 2025 – May 2026  <span style="color:var(--teal)">MakerInMe Technologies</span>
+  → AI Development Intern
+  → Multi-agent LangGraph pipelines in production
+  → Invoice automation (hours → zero with n8n)
+
+Mar – May 2025  <span style="color:var(--teal)">Uptoskills</span>
+  → AI/ML Intern & Team Lead (4-person team)
+  → Real-time crowd surveillance system
+  → Best Intern Award 🏆
+
+Feb – Mar 2025  <span style="color:var(--teal)">Edunet Foundation</span>
+  → MERN Stack Intern
+  → Built complete food delivery platform solo
+
+Jul – Sep 2025  <span style="color:var(--teal)">Infosys Springboard Pragati (Cohort 6)</span>
+  → Graduate Trainee
+  → AWS · Azure · GenAI · Deep Learning · NLP
+
+May – Jun 2025  <span style="color:var(--teal)">iGaruda Secure Cyber Solutions</span>
+  → Cyber Security Trainee
+
+Jun – Jul 2024  <span style="color:var(--teal)">ExcelR</span>
+  → AI & ML Intern
+
+May – Jul 2024  <span style="color:var(--teal)">Avishkar Tech Solutions</span>
+  → Python Full Stack Intern`,
+
+  awards: () => `
+<span style="color:var(--violet)">Achievements & Awards</span>
+
+🏆 Best Intern Award — Uptoskills (AI/ML Team Lead)
+🏆 Intern of the Month — June 2025 — Uptoskills
+🏆 Best Performer Award — Naandi Foundation
+🏆 1st Prize in App Design — TechRitz
+🏆 Best Editor Award — Mindluster
+🏆 NPTEL Elite + Silver — Industry 4.0 & Industrial IoT
+🏆 Infosys Pragati Cohort 6 Graduate
+🏆 WebHack 2025 Student Coordinator (100+ participants)
+🏆 AWS Certified Cloud Practitioner
+🏆 IBM Artificial Intelligence Fundamentals Certified`,
+
+  certifications: () => `
+<span style="color:var(--teal)">Certifications</span>
+
+• Applied Generative AI — Infosys Springboard
+• Prompt Engineering — Infosys Springboard
+• Intro to OpenAI GPT Models — Infosys Springboard
+• AWS Cloud Practitioner — Infosys Springboard
+• AI Fundamentals — IBM (Jul 2025)
+• AWS Cloud Support Associate — Amazon (Aug 2025)
+• Harnessing Generative AI — Skillsoft (Sep 2025)
+• Saviynt Identity Security for AI Age (Dec 2025)
+• NPTEL Industry 4.0 & Industrial IoT — Elite + Silver
+• NPTEL Programming in Java (2024)
+• SQL & Relational Databases 101 — IBM CognitiveClass
+• Computer Vision 101 — Infosys Springboard
+• Tata GenAI Data Analytics — Forage
+• Tata Cybersecurity Analyst — Forage
+• Deloitte Data Analytics — Forage`,
+
+  resume: () => {
+    window.open('resume.pdf', '_blank');
+    return `
+<span style="color:var(--teal)">Resume</span>
+
+Opening resume.pdf in a new tab...
+If it didn't open, click "Resume ↓" in the nav bar above.`;
+  },
+
+  contact: () => `
+<span style="color:var(--teal)">Let's connect</span>
+
+Email:    chowdarysaritha311@gmail.com
+LinkedIn: linkedin.com/in/sarithachowdary
+GitHub:   github.com/Chowdarysaritha311
+LeetCode: leetcode.com/u/ch_saritha095
+CodeChef: codechef.com/users/chsaritha
+
+Location: Andhra Pradesh, India
+Status:   <span style="color:var(--teal)">✓ Available for opportunities</span>`,
+
+  clear: () => '__clear__'
+};
+
+function addLine(html) {
+  const out = document.getElementById('t-output');
+  const div = document.createElement('div');
+  div.className = 't-line-out';
+  div.innerHTML = html;
+  out.appendChild(div);
+  out.parentElement.scrollTop = out.parentElement.scrollHeight;
+}
+
+function runCommand(cmd) {
+  const out = document.getElementById('t-output');
+  const input = document.getElementById('t-input');
+  cmd = cmd.trim().toLowerCase();
+  if (!cmd) return;
+
+  addLine(`<span style="color:var(--blue)">❯</span> <span style="color:var(--text)">${cmd}</span>`);
+
+  if (commands[cmd]) {
+    const result = commands[cmd]();
+    if (result === '__clear__') {
+      out.innerHTML = '';
+      return;
+    }
+    result.trim().split('\n').forEach(line => addLine(line || '&nbsp;'));
+  } else {
+    addLine(`<span style="color:#ff6b6b">bash: ${cmd}: command not found</span>`);
+    addLine('Type <span style="color:var(--blue)">help</span> to see available commands.');
+  }
+
+  addLine('&nbsp;');
+  if (input) input.value = '';
+}
+
+document.getElementById('t-input').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') {
+    runCommand(this.value);
+    this.value = '';
+  }
+});
+</script>
+
+</body>
+</html>
